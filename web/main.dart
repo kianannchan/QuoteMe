@@ -92,7 +92,6 @@ void displayToast(status, toast_message){
     case 2: {
       status_string = 'Warning';
     }break;
-
     case 3: {
       status_string = 'Error';
     }break;
@@ -130,16 +129,8 @@ void updateFav(qid, quote, author){
 void updateFavProgress(){
   var usage = config_c.getUploadLimit();
   var upper_limit = config_c.getBaseUploadLimit();
-  var percent = ((usage)/ upper_limit) * 100;
+  var percent = config_c.percentProgress();
   querySelector('#fav_count').innerHtml = '$usage/$upper_limit';
   querySelector('#fav_progress').style.width = '$percent%';
-  var color;
-  if (percent >= 70){
-    color = '#2D90F9';
-  }else if (percent >= 30 && percent < 70){
-    color = '#F99F2D';
-  }else{
-    color = '#F9452D';
-  }
-  querySelector('#fav_progress').style.backgroundColor = color;
+  querySelector('#fav_progress').style.backgroundColor = config_c.colorProgress(percent);
 }

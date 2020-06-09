@@ -47,6 +47,8 @@ Main (View) -> Controller/ Model (Quote)
 + void setFavQuote(String)
 + bool verifyFavQuota(String);
 + void removeFavQuote(String);
++ double percentProgress();
++ String colorProgress(double)
 ```
 
 *Controller/ Model (Quote)*
