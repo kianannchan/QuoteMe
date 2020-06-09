@@ -53,12 +53,28 @@ class config{
   }
 
   void removeFavQuote(id){
-    for (var x in _collection){
+    for (var x in _collection.toList()){
       var temp = Quote();
       temp.fromJson(x);
       if (temp.getId().toString() == id){
         _collection.remove(x);
       }
     }
+  }
+
+  double percentProgress(){
+    return ((_upload_limit)/ _base_upload_limit) * 100;
+  }
+
+  String colorProgress(percent){
+    var color;
+    if (percent >= 70){
+      color = '#2D90F9';
+    }else if (percent >= 30 && percent < 70){
+      color = '#F99F2D';
+    }else{
+      color = '#F9452D';
+    }
+    return color;
   }
 }
