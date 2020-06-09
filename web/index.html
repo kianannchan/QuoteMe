@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+<div id="content_ready">
+<div class="card">
+    <div class="card-header">
+        <span class="float-left">
+            Quote Refresh:
+            <input value="1" id="running_switch" class="form-control-range" type="range" min="0" max="1">
+        </span>
+        <span class="float-right">Favourite left:
+            <span>
+                <div style="height: 30px;" class="progress">
+                    <div id="fav_progress" class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <span id="fav_count"></span>
+                    </div>
+                </div>
+            </span>
+        </span>
+    </div>
+    <ul id="card_list" class="list-group list-group-flush"></ul>
+</div>
+
+  <!-- The Modal -->
+  <div id="modal_obj" class="modal fade" id="myModal">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                  <h4 class="modal-title">Quote Of the Time</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body shadow-lg p-4 mb-4 bg-white">
+                  <blockquote class="blockquote text-center">
+                      <p id="content" class="mb-5"></p>
+                      <footer id="author" class="blockquote-footer"><cite title="Source Title"></cite></footer>
+                  </blockquote>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                  <div id="timer_container">
+                    New Quote in <input id="timer_prompt" type="text" readonly> sec
+                  </div>
+                  <button id="fav" type="button" class="btn btn-primary">Favourite</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+      <!-- Position it -->
+      <div style="position: absolute; bottom: 0; right: 0; padding:20px;">
+          <!-- Then put toasts within -->
+          <div id="toast_obj" width="200px" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+              <div class="toast-header">
+                  <strong id="toast_title" class="mr-auto"></strong>
+                  <small class="text-muted">just now</small>
+                  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div id="toast_content" class="toast-body">
+                  See? Just like this.
+              </div>
+          </div>
+      </div>
+</div>
+
+<div id="overlay">
+    <div class="spinner"></div>
+</div>
+</body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="scaffolded-by" content="https://github.com/dart-lang/stagehand">
+    <title>QuoteMe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script defer src="main.dart.js"></script>
+    <script>
+    </script>
+</head>
+</html>
